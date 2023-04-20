@@ -1,0 +1,144 @@
+  <div class="search">
+    <form #form="ngForm" (submit)="onSubmit()">
+      <input type="text" placeholder="search city" name="city" [(ngModel)]="cityName">
+    </form>
+  </div>
+
+<div class="container" *ngIf="weatherData">
+  <div class="upper-data">
+    <img src="../assets/hotSum.jpg" *ngIf="weatherData.location.currentConditions.temp  > 15">
+    <!-- Photo by Pixabay: https://www.pexels.com/photo/abstract-beach-bright-clouds-301599/ -->
+    <img src="../assets/coldDay.jpg" *ngIf="weatherData.location.currentConditions.temp <= 15">
+    <!-- Photo by Lum3n: https://www.pexels.com/photo/green-pine-trees-covered-with-fogs-under-white-sky-during-daytime-167699/ -->
+
+    <div class="weather-data">
+      <div class="location">{{weatherData.location.name}}</div>
+      <div class="temperature">{{ weatherData.location.currentConditions.temp | number: '1.0-0' }} °C</div>
+    </div>
+  </div>
+
+  <div class="lower-data">
+    <div class="more-info-label">
+      More Information
+    </div>
+    <div class="more-info-container">
+      <div class="info-block">
+        <!-- <a href="https://www.flaticon.com/free-icons/cold" title="cold icons">Cold icons created by Freepik - Flaticon</a> -->
+        <div class="info-block-label">
+          <img src="../assets/min.png">
+          <span>Min</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.location.values[0].mint | number: '1.0-2' }} °C
+        </div>
+      </div>
+
+      <div class="info-block">
+        <!-- <a href="https://www.flaticon.com/free-icons/hot" title="hot icons">Hot icons created by Freepik - Flaticon</a> -->
+        <div class="info-block-label">
+          <img src="../assets/max.png">
+          <span>Max</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.location.values[0].maxt | number: '1.0-2' }} °C
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <!-- <a href="https://www.flaticon.com/free-icons/humidity" title="humidity icons">Humidity icons created by Freepik - Flaticon</a>-->
+          <img src="../assets/humidity.png">
+          <span>Humidity</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.location.currentConditions.humidity | number: '1.0-2' }}
+          %
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <!-- <a href="https://www.flaticon.com/free-icons/wind" title="wind icons">Wind icons created by Freepik - Flaticon</a> -->
+          <img src="../assets/wind.png">
+          <span>Wind</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.location.currentConditions.wspd | number: '1.0-2' }} km/h
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+
+<!--
+
+<div class="container">
+  <div class="upper-data">
+    <img src="../assets/hotSum.jpg" *ngIf="14 > 15">
+    
+    <img src="../assets/coldDay.jpg" *ngIf="14 <= 15">
+    
+    <div class="weather-data">
+      <div class="location">Dublin</div>
+      <div class="temperature">{{ 14.40 | number: '1.0-0' }} °C</div>
+    </div>
+  </div>
+
+  <div class="lower-data">
+    <div class="more-info-label">
+      More Information
+    </div>
+    <div class="more-info-container">
+      <div class="info-block">
+       <div class="info-block-label">
+          <img src="../assets/min.png">
+          <span>Min</span>
+        </div>
+        <div class="info-block-value">
+          10°C
+        </div>
+      </div>
+
+      <div class="info-block">
+         <div class="info-block-label">
+          <img src="../assets/max.png">
+          <span>Max</span>
+        </div>
+        <div class="info-block-value">
+          40°C
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+            <img src="../assets/humidity.png">
+          <span>Humidity</span>
+        </div>
+        <div class="info-block-value">
+          65%
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+             <img src="../assets/wind.png">
+          <span>Wind</span>
+        </div>
+        <div class="info-block-value">
+          12 km/h
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+-->
