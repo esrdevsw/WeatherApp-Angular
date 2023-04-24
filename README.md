@@ -1,6 +1,9 @@
 This is an Angular full stack weather app with Angular CLI 14.2.7 and we use a public API from RapidAPI.COM to get live weather forecast values for the searched city.
 When we run a new search, we get the update for the current weather conditions and the background image 'is updated with the temperature variation with a javascript function.
 
+![image](https://user-images.githubusercontent.com/21969268/233994775-e7e78ee8-58e5-4938-abb8-9bbb6a7f40b1.png)
+
+
 # WeatherApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
